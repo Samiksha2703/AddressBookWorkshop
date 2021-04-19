@@ -11,8 +11,14 @@ public class AddressBookMain {
         System.out.println("Welcome to Address Book Program");
     }
 
-    public void addContact(Contact contact) {
+    public boolean addContact(Contact contact) {
         List<Contact> contactList = new ArrayList<>();
-        contactList.add(contact);
+        try {
+            contactList.add(contact);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
