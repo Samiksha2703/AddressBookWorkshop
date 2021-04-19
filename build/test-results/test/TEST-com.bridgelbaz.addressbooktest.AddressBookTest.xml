@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelbaz.addressbooktest.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-19T06:04:46" hostname="LAPTOP-VA1S61KV" time="0.026">
+<testsuite name="com.bridgelbaz.addressbooktest.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-19T13:13:25" hostname="LAPTOP-VA1S61KV" time="0.05">
   <properties/>
-  <testcase name="givenContactName_whenDeleted_ShouldReturn_true()" classname="com.bridgelbaz.addressbooktest.AddressBookTest" time="0.026"/>
-  <system-out><![CDATA[Contact deleted with name : Samiksha
-[]
+  <testcase name="givenListOfContacts_whenAdded_ShouldReturn_true()" classname="com.bridgelbaz.addressbooktest.AddressBookTest" time="0.05"/>
+  <system-out><![CDATA[Contact Added Successfully.
+Contact Added Successfully.
+Contact Added Successfully.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
