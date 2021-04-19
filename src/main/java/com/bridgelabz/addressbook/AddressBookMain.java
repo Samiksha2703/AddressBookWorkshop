@@ -5,22 +5,35 @@ import java.util.List;
 
 public class AddressBookMain {
 
-   public List<Contact> contactList;
+   public static List<Contact> contactList;
 
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program");
     }
 
-    public boolean addContact(Contact contact) {
+    public List<Contact> addContact(Contact contact) {
         System.out.println(contact);
-        List<Contact> contactList = new ArrayList<>();
+        contactList = new ArrayList<>();
         try {
             contactList.add(contact);
-            System.out.println(contactList);
-            return true;
+            return contactList;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return contactList;
+    }
+
+    public Contact updateContact(List<Contact> contactList, String name, String newAddress) {
+        try {
+            for(Contact contact : contactList){
+                if(contact.firstName.equals(name)){
+                 contact.address = newAddress;
+                }
+                return contact;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
