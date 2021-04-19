@@ -2,7 +2,6 @@ package com.bridgelbaz.addressbooktest;
 
 import com.bridgelabz.addressbook.AddressBookMain;
 import com.bridgelabz.addressbook.Contact;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -25,5 +24,14 @@ public class AddressBookTest {
         List<Contact> contactList = addressBookMain.addContact(contact);
         Contact updateContact = addressBookMain.updateContact(contactList, "Samiksha", "address","Shivaji Nagar");
         Assertions.assertEquals("Shivaji Nagar", updateContact.address);
+    }
+
+    @Test
+    public void givenContactName_whenDeleted_ShouldReturn_true(){
+        AddressBookMain addressBookMain = new AddressBookMain();
+        Contact contact = new Contact("Samiksha", "Shende", "Ram Nagar", "Wardha", "MH", "442001", "7385697450", "shende.samiksha@gmail.com");
+        List<Contact> contactList = addressBookMain.addContact(contact);
+        List<Contact> deleteContactList = addressBookMain.deleteContact(contactList, "Samiksha");
+        Assertions.assertEquals(0, deleteContactList.size());
     }
 }
