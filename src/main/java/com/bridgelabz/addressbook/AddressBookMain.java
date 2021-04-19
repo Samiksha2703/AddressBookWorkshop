@@ -23,11 +23,36 @@ public class AddressBookMain {
         return contactList;
     }
 
-    public Contact updateContact(List<Contact> contactList, String name, String newAddress) {
+    public Contact updateContact(List<Contact> contactList, String name, String fieldName, String update) {
         try {
             for(Contact contact : contactList){
-                if(contact.firstName.equals(name)){
-                 contact.address = newAddress;
+                if(contact.firstName.equals(name)) {
+                    switch (fieldName) {
+                        case "firstName":
+                            contact.firstName = update;
+                            break;
+                        case "lastName":
+                            contact.lastName = update;
+                            break;
+                        case "address":
+                            contact.address = update;
+                            break;
+                        case "city":
+                            contact.city = update;
+                            break;
+                        case "state":
+                            contact.state = update;
+                            break;
+                        case "zip":
+                            contact.zip = update;
+                            break;
+                        case "phone":
+                            contact.phone = update;
+                            break;
+                        case "email":
+                            contact.email = update;
+                            break;
+                    }
                 }
                 return contact;
             }

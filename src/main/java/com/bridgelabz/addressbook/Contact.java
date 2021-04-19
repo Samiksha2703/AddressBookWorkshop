@@ -7,11 +7,11 @@ public class Contact {
     public String address;
     public String city;
     public String state;
-    public int zip;
+    public String zip;
     public String phone;
     public String email;
 
-    public Contact (String firstName, String lastName, String address, String city, String state, int zip, String phone, String email) {
+    public Contact (String firstName, String lastName, String address, String city, String state, String zip, String phone, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
