@@ -8,16 +8,12 @@ import org.junit.jupiter.api.Test;
 
 public class AddressBookTest {
 
-    private AddressBookMain addressBookMain;
-
-    @Before
-    public void initialize() {
-        AddressBookMain addressBookMain = new AddressBookMain();
-    }
+    public AddressBookMain addressBookMain;
 
     @Test
     public void givenContact_WhenAddedToAddressBook_ShouldReturn_true(){
-        Contact contact = new Contact("Samiksha", "Shende", "Ram Nagar", "Wardha", "MH", 442001, "7385697450", "shende.samiksha@gmail.com"); )
+        AddressBookMain addressBookMain = new AddressBookMain();
+        Contact contact = new Contact("Samiksha", "Shende", "Ram Nagar", "Wardha", "MH", 442001, "7385697450", "shende.samiksha@gmail.com");
         boolean isadded = addressBookMain.addContact(contact);
         Assertions.assertTrue(isadded);
     }

@@ -12,9 +12,11 @@ public class AddressBookMain {
     }
 
     public boolean addContact(Contact contact) {
+        System.out.println(contact);
         List<Contact> contactList = new ArrayList<>();
         try {
             contactList.add(contact);
+            System.out.println(contactList);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

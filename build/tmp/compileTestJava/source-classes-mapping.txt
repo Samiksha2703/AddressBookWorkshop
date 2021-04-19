@@ -1,0 +1,2 @@
+com/bridgelbaz/addressbooktest/AddressBookTest.java
+ com.bridgelbaz.addressbooktest.AddressBookTest

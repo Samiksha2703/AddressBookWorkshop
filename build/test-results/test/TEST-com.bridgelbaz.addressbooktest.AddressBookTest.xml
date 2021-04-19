@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bridgelbaz.addressbooktest.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-19T04:20:22" hostname="LAPTOP-VA1S61KV" time="0.027">
+  <properties/>
+  <testcase name="givenContact_WhenAddedToAddressBook_ShouldReturn_true()" classname="com.bridgelbaz.addressbooktest.AddressBookTest" time="0.027"/>
+  <system-out><![CDATA[{firstName='Samiksha', lastName='Shende', address='Ram Nagar', city='Wardha', state='MH', zip=442001, phone=7385697450, email='shende.samiksha@gmail.com'}
+[{firstName='Samiksha', lastName='Shende', address='Ram Nagar', city='Wardha', state='MH', zip=442001, phone=7385697450, email='shende.samiksha@gmail.com'}]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
