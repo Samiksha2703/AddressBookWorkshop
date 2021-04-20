@@ -7,90 +7,100 @@ import java.util.List;
 public class AddressBookMain {
 
     public static List<Contact> contactList = new ArrayList<>();
-    public static HashMap<String, List<Contact>> addressBookMap;
+    public static HashMap<String, List<Contact>> addressBookMap = new HashMap<>();
 
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program");
     }
 
-    public List<Contact> addContact(Contact contact) {
+    public HashMap<String, List<Contact>> addContact(String addressBookName, Contact contact) {
         try {
-            contactList.add(contact);
+            if (!addressBookMap.containsKey(addressBookName)) {
+                createNewAddAddressBook(addressBookName);
+            }
+            addressBookMap.get(addressBookName).add(contact);
             System.out.println("Contact Added Successfully.");
-            return contactList;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return contactList;
+        return addressBookMap;
     }
 
-    public Contact updateContact(List<Contact> contactList, String name, String fieldName, String update) {
+    public boolean updateContact(HashMap<String, List<Contact>> addressBookList, String addressBookName, String name, String fieldName, String update) {
         try {
-            for (Contact contact : contactList) {
-                if (contact.firstName.equals(name)) {
-                    switch (fieldName) {
-                        case "firstName":
-                            contact.firstName = update;
-                            break;
-                        case "lastName":
-                            contact.lastName = update;
-                            break;
-                        case "address":
-                            contact.address = update;
-                            break;
-                        case "city":
-                            contact.city = update;
-                            break;
-                        case "state":
-                            contact.state = update;
-                            break;
-                        case "zip":
-                            contact.zip = update;
-                            break;
-                        case "phone":
-                            contact.phone = update;
-                            break;
-                        case "email":
-                            contact.email = update;
-                            break;
+            if (addressBookList.containsKey(addressBookName)) {
+                List<Contact> contactList = addressBookList.get(addressBookName);
+                for (Contact contact : contactList) {
+                    if (contact.firstName.equals(name)) {
+                        switch (fieldName) {
+                            case "firstName":
+                                contact.firstName = update;
+                                break;
+                            case "lastName":
+                                contact.lastName = update;
+                                break;
+                            case "address":
+                                contact.address = update;
+                                break;
+                            case "city":
+                                contact.city = update;
+                                break;
+                            case "state":
+                                contact.state = update;
+                                break;
+                            case "zip":
+                                contact.zip = update;
+                                break;
+                            case "phone":
+                                contact.phone = update;
+                                break;
+                            case "email":
+                                contact.email = update;
+                                break;
+                        }
+                        System.out.println("Contact updated with name : " + name);
+                    }
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean deleteContact(HashMap<String, List<Contact>> addressBookList, String addressBookName, String name) {
+        try {
+            if (addressBookList.containsKey(addressBookName)) {
+                List<Contact> contactList = addressBookList.get(addressBookName);
+                for (Contact contact : contactList) {
+                    if (contact.firstName.equals(name)) {
+                        contactList.remove(contactList.indexOf(contact));
+                        System.out.println("Contact deleted with name : " + name);
+                        break;
                     }
                 }
-                return contact;
             }
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 
-    public List<Contact> deleteContact(List<Contact> contactList, String name) {
-        try {
-            for (Contact contact : contactList) {
-                if (contact.firstName.equals(name)) {
-                    contactList.remove(contactList.indexOf(contact));
-                    System.out.println("Contact deleted with name : " + name);
-                    break;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return contactList;
-    }
-
-    public List<Contact> addContactList(List<Contact> contactDataList) {
+    public HashMap<String, List<Contact>> addContactList(String addressBookName, List<Contact> contactDataList) {
         try {
             for (Contact contact : contactDataList) {
-                addContact(contact);
+                addContact(addressBookName, contact);
             }
+            return addressBookMap;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return contactList;
+        return addressBookMap;
     }
 
     public HashMap<String, List<Contact>> createNewAddAddressBook(String addressBookName) {
-        addressBookMap = new HashMap<>();
         try {
             addressBookMap.put(addressBookName, new ArrayList<Contact>());
             System.out.println("New Address Book Created with Name : " + addressBookName);
