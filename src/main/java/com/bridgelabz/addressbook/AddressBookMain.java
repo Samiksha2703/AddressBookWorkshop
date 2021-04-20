@@ -1,11 +1,13 @@
 package com.bridgelabz.addressbook;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class AddressBookMain {
 
     public static List<Contact> contactList = new ArrayList<>();
+    public static HashMap<String, List<Contact>> addressBookMap;
 
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program");
@@ -70,7 +72,6 @@ public class AddressBookMain {
                     break;
                 }
             }
-            return contactList;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -82,10 +83,20 @@ public class AddressBookMain {
             for (Contact contact : contactDataList) {
                 addContact(contact);
             }
-            return contactList;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return contactList;
+    }
+
+    public HashMap<String, List<Contact>> createNewAddAddressBook(String addressBookName) {
+        addressBookMap = new HashMap<>();
+        try {
+            addressBookMap.put(addressBookName, new ArrayList<Contact>());
+            System.out.println("New Address Book Created with Name : " + addressBookName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return addressBookMap;
     }
 }

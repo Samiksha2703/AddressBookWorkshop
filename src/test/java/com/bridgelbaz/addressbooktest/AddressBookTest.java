@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class AddressBookTest {
@@ -46,5 +47,12 @@ public class AddressBookTest {
         contactDataList.add(new Contact("Neha", "Zade", "Gajanan Nagar", "Wardha", "MH", "442001", "9745073856", "neha.zade@gmail.com"));
         List<Contact> contactList = addressBookMain.addContactList(contactDataList);
         Assertions.assertEquals(3, contactList.size());
+    }
+
+    @Test
+    public void whenNewAddressBookCreated_ShouldReturn_true() {
+        AddressBookMain addressBookMain = new AddressBookMain();
+        HashMap<String, List<Contact>> addressBookList = addressBookMain.createNewAddAddressBook("Friends");
+        Assertions.assertTrue(addressBookList.containsKey("Friends"));
     }
 }
