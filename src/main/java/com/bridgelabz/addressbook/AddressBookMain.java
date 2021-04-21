@@ -3,6 +3,7 @@ package com.bridgelabz.addressbook;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 public class AddressBookMain {
 
@@ -18,12 +19,22 @@ public class AddressBookMain {
             if (!addressBookMap.containsKey(addressBookName)) {
                 createNewAddAddressBook(addressBookName);
             }
-            addressBookMap.get(addressBookName).add(contact);
-            System.out.println("Contact Added Successfully.");
+            boolean check = checkDuplicate(addressBookMap, addressBookName, contact);
+            if (!check) {
+                addressBookMap.get(addressBookName).add(contact);
+                System.out.println("Contact Added Successfully.");
+            } else return addressBookMap;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return addressBookMap;
+    }
+
+    private boolean checkDuplicate(HashMap<String, List<Contact>> addressBookMap, String addressBookName, Contact contact) {
+        contactList = addressBookMap.get(addressBookName);
+        long count = contactList.stream().filter(data -> data.firstName.equals(contact.firstName)).count();
+        if (count == 0) return true;
+        return false;
     }
 
     public boolean updateContact(HashMap<String, List<Contact>> addressBookList, String addressBookName, String name, String fieldName, String update) {

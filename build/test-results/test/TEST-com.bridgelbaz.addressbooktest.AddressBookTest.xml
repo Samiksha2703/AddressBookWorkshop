@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelbaz.addressbooktest.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-20T10:37:38" hostname="LAPTOP-VA1S61KV" time="0.051">
+<testsuite name="com.bridgelbaz.addressbooktest.AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-21T02:44:21" hostname="LAPTOP-VA1S61KV" time="0.063">
   <properties/>
-  <testcase name="whenNewAddressBookCreated_ShouldReturn_true()" classname="com.bridgelbaz.addressbooktest.AddressBookTest" time="0.051"/>
-  <system-out><![CDATA[New Address Book Created with Name : Friends
+  <testcase name="givenListOfContacts_whenDuplicateContact_ShouldFailTheTest()" classname="com.bridgelbaz.addressbooktest.AddressBookTest" time="0.063"/>
+  <system-out><![CDATA[New Address Book Created with Name : Family
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

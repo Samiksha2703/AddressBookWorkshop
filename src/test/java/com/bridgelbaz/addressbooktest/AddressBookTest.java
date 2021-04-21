@@ -54,4 +54,15 @@ public class AddressBookTest {
         HashMap<String, List<Contact>> addressBookList = addressBookMain.createNewAddAddressBook("Friends");
         Assertions.assertTrue(addressBookList.containsKey("Friends"));
     }
+
+    @Test
+    public void givenListOfContacts_whenDuplicateContact_ShouldPassTheTest() {
+        AddressBookMain addressBookMain = new AddressBookMain();
+        List<Contact> contactDataList = new ArrayList<>();
+        contactDataList.add(new Contact("Samiksha", "Shende", "Ram Nagar", "Wardha", "MH", "442001", "7385697450", "shende.samiksha@gmail.com"));
+        contactDataList.add(new Contact("Apurva", "Yede", "Murarka Layout", "Wardha", "MH", "442001", "8794569789", "apurvayede@gmail.com"));
+        contactDataList.add(new Contact("Samiksha", "Zade", "Gajanan Nagar", "Wardha", "MH", "442001", "9745073856", "neha.zade@gmail.com"));
+        HashMap<String, List<Contact>> contactList = addressBookMain.addContactList("Family", contactDataList);
+        Assertions.assertNotEquals(3, contactList.get("Family").size());
+    }
 }
